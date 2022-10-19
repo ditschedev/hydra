@@ -52,7 +52,7 @@ func (c *AEAD) Encrypt(ctx context.Context, plaintext []byte) (string, error) {
 		return "", errors.Errorf("at least one encryption key must be defined but none were")
 	}
 
-	if len(keys[0]) < 32 {
+	if len(keys[0]) != 32 {
 		return "", errors.Errorf("key must be exactly 32 long bytes, got %d bytes", len(keys[0]))
 	}
 
